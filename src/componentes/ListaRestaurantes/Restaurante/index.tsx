@@ -1,4 +1,4 @@
-import IRestaurante from '../../../interfaces/IRestaurante';
+import IRestaurante from '../../../utils/IRestaurante';
 import Prato from '../Prato';
 import estilos from './Restaurante.module.scss';
 

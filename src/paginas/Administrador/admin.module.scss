@@ -1,0 +1,28 @@
+.container {
+    max-width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+
+
+}
+
+
+.head {
+    background-color: #DEB887;
+}
+
+.restaura {
+    background:#E0FFFF;
+    cursor: pointer;
+
+    ::hover {
+        box-shadow: 1px 1px firebrick,
+            2px 2px firebrick,
+            3px 3px firebrick,
+            4px 4px firebrick,
+            5px 5px firebrick,
+            6px 6px firebrick,
+            2px 2px firebrick;
+        transform: translateX(-3px);
+    }
+}
