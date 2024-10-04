@@ -12,9 +12,11 @@ import Header from "../../componentes/NavBar";
 import Footer from "../../componentes/Rodape/index";
 import Banner2 from "../../componentes/banner2";
 import Botao from "../../componentes/botao";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import { Button } from "@mui/material";
 export default function ADM() {
   const [restaurantes, setRestaurante] = useState<IRestaurante[]>([]);
+  const parametros = useParams()
   const navegar = useNavigate();
   useEffect(() => {
     axios
@@ -28,6 +30,17 @@ export default function ADM() {
       });
   }, []); //Estou usando o useEffect para mostrar tudo qunado a página é carregada
 
+  const Deletar = (restauranteTODelete:IRestaurante) =>{
+    axios.delete<IRestaurante>(`http://localhost:8000/api/v2/restaurantes/${restauranteTODelete.id}/`)//Tava sofrendo pra fazer isso acontecer kkkkkkkkkkkkkk
+      .then(()=>{
+        const restoRest = restaurantes.filter(restaurante=> restaurante.id!== restauranteTODelete.id)
+        setRestaurante([...restoRest])
+      })
+      .catch(erro=>{
+        alert(erro)
+      })
+  } 
+
   return (
     <>
       <Header />
@@ -36,21 +49,25 @@ export default function ADM() {
         <Table component={Paper}>
           <TableHead>
             <TableRow className={styles.head}>
-              <TableCell>RESTAURANTES PARCEIROS ⬇:</TableCell>
+              <TableCell>RESTAURANTES PARCEIROS:</TableCell>
+              <TableCell>EDITAR RESTAURANTES:</TableCell>
+              <TableCell>EXLUIR RESTAURANTES:</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            {restaurantes.map((restaurante) => (
-              <TableRow key={restaurante.id} className={styles.restaura}>
+            {restaurantes.map((restaurante,index) => (
+              <TableRow key={index} className={styles.restaura}>
                 <TableCell>{restaurante.nome}</TableCell>
+                <TableCell><Link to={`/admin/cadastro/restaurantes/${restaurante.id}`} className={styles.link}>Editar</Link></TableCell>
+                <TableCell><Botao nome={'Exlucuir'} color={'error'} onClick={()=> Deletar(restaurante)}></Botao></TableCell>
               </TableRow>
-            ))}
+            ))}            
           </TableBody>
         </Table>
       </div>
       <div>
         <Botao
-          onClick={() => navegar("/cadastro/restaurantes")}
+          onClick={() => navegar("/admin/cadastro/restaurantes")}
           nome={"Cadastrar novo restaurante"}
         ></Botao>
       </div>

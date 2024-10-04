@@ -3,6 +3,7 @@ import Home from "./paginas/Home";
 import VitrineRestaurantes from "./paginas/VitrineRestaurantes";
 import AdiministracaoRestaurantes from "./paginas/Administrador/AdiministracaoRestaurantes";
 import Cadastro from "./paginas/Cadastro Restaurantes";
+import NotFound from "./paginas/404";
 
 function App() {
   return (
@@ -13,7 +14,9 @@ function App() {
         path="/admin/restaurantes"
         element={<AdiministracaoRestaurantes />}
       />
-      <Route path="/cadastro/restaurantes" element={<Cadastro />} />
+      <Route path="/admin/cadastro/restaurantes/:id" element={<Cadastro />} />
+      <Route path="/admin/cadastro/restaurantes" element={<Cadastro />} />
+      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 }
