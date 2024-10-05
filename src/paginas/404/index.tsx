@@ -1,4 +1,4 @@
-import QUatroQuatro from '../../assets/404 Error with a cute animal-bro.png';
+import QUatroQuatro from '../../assets/404 Error with a cute animal-bro.gif';
 import Header from '../../componentes/NavBar';
 import Footer from '../../componentes/Rodape';
 import styles from './notfound.module.scss'

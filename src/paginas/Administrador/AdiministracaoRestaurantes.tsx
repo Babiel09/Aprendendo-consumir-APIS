@@ -35,6 +35,7 @@ export default function ADM() {
       .then(()=>{
         const restoRest = restaurantes.filter(restaurante=> restaurante.id!== restauranteTODelete.id)
         setRestaurante([...restoRest])
+        alert('Restaurante Deletado')
       })
       .catch(erro=>{
         alert(erro)

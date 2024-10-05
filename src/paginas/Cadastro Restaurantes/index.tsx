@@ -24,8 +24,8 @@ export default function Cadastro() {
         {
           nome: nomeRes,
         })
-          .then((enviar) => {
-            console.log("Atualizou", enviar);
+          .then(()=> {
+            alert('Restaurante atualizado')
           })
           .catch((erro) => {
             console.log(erro);
@@ -35,8 +35,8 @@ export default function Cadastro() {
         .post("http://localhost:8000/api/v2/restaurantes/", {
           nome: nomeRes,
         })
-        .then((enviar) => {
-          console.log("Enviou", enviar);
+        .then(() => {
+          alert('Novo restaurante cadastrado');
         })
         .catch((erro) => {
           console.log(erro);

@@ -33,6 +33,15 @@
                     color: #000;
                 }
             }
+            img{
+                display: inline-block;
+                left: 20px;
+            }
         }
+    }
+}
+.login{    
+    &:hover:after{
+        width: 100%;
     }
 }
