@@ -15,15 +15,15 @@ export default function Login () {
             <form className={styles.container}>
                 <h2>Cadastro</h2>
                 <div className={styles.titulo}>
-                <TextField id="outlined-basic" label="Nome" variant="outlined" type="text"/>
+                <TextField id="outlined-basic" label="Nome" variant="outlined" type="text" fullWidth required/>
                 <br />
                 <br />
                 <br />
-                <TextField id="outlined" label="email" variant="outlined" type="email"/>
+                <TextField id="outlined" label="email" variant="outlined" type="email" fullWidth required/>
                 <br />
                 <br />
                 <br />
-                <TextField id="outlined-basic" label="senha" variant="outlined" type="password"/>        
+                <TextField id="outlined-basic" label="senha" variant="outlined" type="password" fullWidth required/>        
             <br />
             <br />
             <div className={styles.botao}>

@@ -60,6 +60,7 @@ export default function Cadastro() {
             onChange={(evento) => setNomeRes(evento.target.value)}
             label="Nome do Restaurante"
             variant="outlined"
+            fullWidth
             required
           />
         </div>

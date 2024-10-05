@@ -8,10 +8,14 @@ export default function NotFound() {
         <>
         <Header/>
         <div className={styles.container}>
+        <div className={styles.resto}>
+            <h3>PAGE NOT FOUND</h3>
+            </div>
             <img
             src={QUatroQuatro}
             width={800}
             />
+           
         </div>
         <Footer/>
         </>
