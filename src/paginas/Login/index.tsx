@@ -5,6 +5,8 @@ import Footer from "../../componentes/Rodape";
 import styles from './login.module.scss';
 import Botao from "../../componentes/botao";
 import LoginLogo from '../../assets/Login.gif'
+
+
 export default function Login () {
     return(
         <>
@@ -13,6 +15,7 @@ export default function Login () {
         <br />
         <br />
             <form className={styles.container}>
+                
                 <h2>Cadastro</h2>
                 <div className={styles.titulo}>
                 <TextField id="outlined-basic" label="Nome" variant="outlined" type="text" fullWidth required/>
@@ -31,9 +34,10 @@ export default function Login () {
             </div>     
             </div>
             <div className={styles.imagem}>
-                <img src={LoginLogo} alt="imagem do Login" />
-            </div>
+                <img src={LoginLogo} alt="imagem do Login" />        
+            </div>  
             </form>
+           
             <Footer/>
             
         </>

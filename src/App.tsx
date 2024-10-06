@@ -5,7 +5,7 @@ import AdiministracaoRestaurantes from "./paginas/Administrador/AdiministracaoRe
 import Cadastro from "./paginas/Cadastro Restaurantes";
 import NotFound from "./paginas/404";
 import Login from "./paginas/Login";
-import CadastroPratos from "./paginas/Cadastro-Restaurantes";
+import CadastroPratos from "./paginas/Cadastro-Prato";
 import ADMPratos from "./paginas/Administrador/ADM-pratos";
 
 function App() {
@@ -27,8 +27,8 @@ function App() {
       //Rota pra mehcer nos pratos:
       <Route path='/admin/pratos' element={<ADMPratos/>}>
 
-      <Route path='prato' element={<CadastroPratos/>} />
-      <Route path='prato:id' element={<CadastroPratos/>} />
+      <Route path='cadastro/pratos' element={<CadastroPratos/>} />
+      <Route path='cadastro/pratos:id' element={<CadastroPratos/>} />
 
 
       </Route>

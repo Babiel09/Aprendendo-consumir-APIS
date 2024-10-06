@@ -1,15 +1,10 @@
-import Banner2 from "../../componentes/banner2";
-import Header from "../../componentes/NavBar";
 import TextField from "@mui/material/TextField";
 import styles from "./cadastro.module.scss";
 import { Button } from "@mui/material";
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import Footer from "../../componentes/Rodape";
-import { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import IRestaurante from "../../utils/IRestaurante";
 
 export default function Cadastro() {
   const parametros = useParams();

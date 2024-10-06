@@ -17,7 +17,7 @@ import { Button } from "@mui/material";
 import IPrato from "../../utils/IPrato";
 export default function ADM() {
   const [restaurantes, setRestaurante] = useState<IRestaurante[]>([]);
-  const [pratoRes, setPratoRes] = useState<IPrato[]>([])
+  const [pratoRes, setPratoRes] = useState('')
 
 
   const parametros = useParams()
@@ -47,7 +47,6 @@ export default function ADM() {
   } 
 
 
-
   return (
     <>
       <Header />
@@ -69,7 +68,6 @@ export default function ADM() {
                 <TableCell key={index}>{restaurante.nome}</TableCell>
                 <TableCell key={index}><Link to={`/admin/cadastro/restaurantes/${restaurante.id}`} className={styles.link}>Editar</Link></TableCell>
                 <TableCell key={index}><Botao nome={'Exlucuir'} color={'error'} onClick={()=> Deletar(restaurante)}></Botao></TableCell>
-                <TableCell key={index}><Botao nome={'Ver Pratos'} color={'secondary'} onClick={()=> navegar('/pratos')}></Botao></TableCell>
                 </TableRow>     
                 </>
             ))}  
@@ -78,12 +76,21 @@ export default function ADM() {
         </Table>
       </div>
       <div>
+        <br />
         <Botao
           onClick={() => navegar("/admin/cadastro/restaurantes")}
           nome={"Cadastrar novo restaurante"}
         >
 
         </Botao>
+      </div>
+      <br />
+      <br />
+      <div>
+        <Botao
+        onClick={()=> navegar('/admin/pratos')}
+        nome={'Deseja ver os Pratos?'}
+        ></Botao>
       </div>
       <div>
         <Outlet/>

@@ -29,7 +29,7 @@ export default function ADMPratos() {
     .then(resposta=>{
       setPratoRes(resposta.data)
     })
-  })
+  },[])
     
     
     return (
@@ -48,7 +48,7 @@ export default function ADMPratos() {
                 {pratoRes.map((prato,index)=>(
                   <>
                   <TableRow className={styles.restaura}>
-                    <TableCell key={index}>{prato.nome}</TableCell>
+                    <TableCell key={prato.id}>{prato.nome}</TableCell>
                     </TableRow>     
                     </>
                 ))}  
@@ -58,8 +58,8 @@ export default function ADMPratos() {
           </div>
           <div>
             <Botao
-              onClick={() => navegar("/admin/cadastro/restaurantes")}
-              nome={"Cadastrar novo restaurante"}
+              onClick={() => navegar("cadastro/pratos")}
+              nome={"Cadastrar novo Prato"}
             >
     
             </Botao>
