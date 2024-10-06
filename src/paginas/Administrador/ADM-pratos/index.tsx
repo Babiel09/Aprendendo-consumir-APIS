@@ -40,6 +40,17 @@ export default function ADMPratos() {
     })
   },[])
     
+
+
+  //Função para deletar pratos:
+  const Deletar = (pratoParaSerDeletado:IPrato) => {
+    axios
+    .delete<IPrato>(`http://localhost:8000/api/v2/pratos/${pratoParaSerDeletado.id}/`)
+    .then(()=>{
+      const restoPratos = pratoRes.filter(prato=> prato.id!== pratoParaSerDeletado.id)
+      setPratoRes([...restoPratos])
+    })
+  }
     
     return (
         <>
@@ -49,23 +60,21 @@ export default function ADMPratos() {
             <Table component={Paper}>
               <TableHead>
                 <TableRow className={styles.head}>
-                  <TableCell>RESTAURANTES:</TableCell>
                   <TableCell>PRATOS:</TableCell>
+                  <TableCell>EDITAR PRATOS:</TableCell>
+                  <TableCell>DELETAR PRATOS:</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
-              <TableRow className={styles.restaura} >
-                {restaurantes.map((taurino, index)=>(
-                   
-                     <TableCell key={index}>{taurino.nome}</TableCell>
-                    
-                     
-                       
-                ))}
-                 {pratoRes.map((prato,index)=>(
-                    <TableCell key={index}>{prato.nome}</TableCell>   
+             
+                 {pratoRes.map((prato)=>(
+                   <TableRow className={styles.restaura} >
+                    <TableCell key={prato.id}>{prato.nome}</TableCell>   
+                    <TableCell key={prato.id}><Link to={`cadastro/pratos/${prato.id}`} className={styles.link}>editar</Link></TableCell>   
+                    <TableCell key={prato.id}><Botao nome='excluir' color="error"onClick={()=>Deletar(prato)}></Botao></TableCell>   
+                    </TableRow>  
                 ))}  
-                </TableRow>  
+                
                 </TableBody>
                 </Table>
                 </div>

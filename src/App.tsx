@@ -28,7 +28,7 @@ function App() {
       <Route path='/admin/pratos' element={<ADMPratos/>}>
 
       <Route path='cadastro/pratos' element={<CadastroPratos/>} />
-      <Route path='cadastro/pratos:id' element={<CadastroPratos/>} />
+      <Route path='cadastro/pratos/:id' element={<CadastroPratos/>} />
 
 
       </Route>

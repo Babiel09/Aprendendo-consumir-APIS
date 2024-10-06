@@ -14,7 +14,7 @@ export default function CadastroPratos() {
     const [descriPrato, setDescriPrato] = useState<string>('')
     const [resPrato, setResPrato] = useState<string>('')
     const [restaurante, setRestaurante] = useState<IRestaurante[]>([])
-
+    const parametros = useParams()
       useEffect(()=>{
         axios.
         get<IRestaurante[]>('http://localhost:8000/api/v2/restaurantes/')
@@ -34,6 +34,19 @@ export default function CadastroPratos() {
    
     
     const submeter = (evento: React.FormEvent<HTMLFormElement>) => {
+      if(parametros.id){
+        axios.put<IPrato>(`http://localhost:8000/api/v2/pratos/${parametros.id}/`, {
+          nome: pratos,
+          descricao: descriPrato,
+          restaurante: resPrato
+      })
+        .then(()=>{
+          alert('Prato editado')
+        })
+        .catch(erro=>{
+          alert(erro)
+        })
+      }else{
         axios
         .post("http://localhost:8000/api/v2/pratos/", {
           nome: pratos,
@@ -46,6 +59,9 @@ export default function CadastroPratos() {
         .catch((erro)=>{
             alert(erro)
         })
+      }
+        
+
         window.location.reload()
     }
     
