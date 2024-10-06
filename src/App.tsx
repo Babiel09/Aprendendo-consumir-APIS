@@ -5,6 +5,8 @@ import AdiministracaoRestaurantes from "./paginas/Administrador/AdiministracaoRe
 import Cadastro from "./paginas/Cadastro Restaurantes";
 import NotFound from "./paginas/404";
 import Login from "./paginas/Login";
+import CadastroPratos from "./paginas/Cadastro-Restaurantes";
+import ADMPratos from "./paginas/Administrador/ADM-pratos";
 
 function App() {
   return (
@@ -12,13 +14,25 @@ function App() {
       <Route path="/" element={<Home />} />
       <Route path="/restaurantes" element={<VitrineRestaurantes />} />
 
+//Rotas para os adms restaurantes
       <Route path="/admin" element={<AdiministracaoRestaurantes />}> //Essa parte é especial
 
       <Route path="cadastro/restaurantes/:id" element={<Cadastro />} />
       <Route path="cadastro/restaurantes" element={<Cadastro />} />
 
-      </Route>
 
+      </Route>
+      //Fim das rotas para os adms restaurantes
+
+      //Rota pra mehcer nos pratos:
+      <Route path='/admin/pratos' element={<ADMPratos/>}>
+
+      <Route path='prato' element={<CadastroPratos/>} />
+      <Route path='prato:id' element={<CadastroPratos/>} />
+
+
+      </Route>
+      //Fim da rota para mecher nos pratos
 
 
       <Route path="*" element={<NotFound />} />

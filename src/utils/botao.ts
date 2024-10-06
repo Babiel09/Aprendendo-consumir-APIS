@@ -5,4 +5,5 @@ export default interface BotaoProps{
     onClick?: ()=> void;
     type?: 'submit' | 'button' |  'reset' | undefined
     color?:'success' | 'error' | 'secondary' | undefined
+    children?:ReactNode
 }
