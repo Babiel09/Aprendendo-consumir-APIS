@@ -15,6 +15,7 @@ import { Button } from "@mui/material";
 import styles from './adm-pratos.module.scss'
 import IPrato from "../../../utils/IPrato";
 import IRestaurante from "../../../utils/IRestaurante";
+import Header2 from "../../../componentes/header admin";
 
 export default function ADMPratos() {
     
@@ -54,7 +55,7 @@ export default function ADMPratos() {
     
     return (
         <>
-          <Header />
+          <Header2 />
           <Banner2 />
           <div className={styles.container}>
             <Table component={Paper}>

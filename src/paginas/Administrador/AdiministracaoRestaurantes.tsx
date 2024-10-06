@@ -15,6 +15,7 @@ import Botao from "../../componentes/botao";
 import { Link, Outlet, useNavigate, useParams } from "react-router-dom";
 import { Button } from "@mui/material";
 import IPrato from "../../utils/IPrato";
+import Header2 from "../../componentes/header admin";
 export default function ADM() {
   const [restaurantes, setRestaurante] = useState<IRestaurante[]>([]);
   const [pratoRes, setPratoRes] = useState('')
@@ -49,7 +50,7 @@ export default function ADM() {
 
   return (
     <>
-      <Header />
+      <Header2 />
       <Banner2 />
       <div className={styles.container}>
         <Table component={Paper}>
