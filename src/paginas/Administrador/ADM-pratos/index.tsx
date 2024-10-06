@@ -14,12 +14,14 @@ import { Link, Outlet, useNavigate, useParams } from "react-router-dom";
 import { Button } from "@mui/material";
 import styles from './adm-pratos.module.scss'
 import IPrato from "../../../utils/IPrato";
+import IRestaurante from "../../../utils/IRestaurante";
 
 export default function ADMPratos() {
     
     
     
     const [pratoRes, setPratoRes] = useState<IPrato[]>([])  
+    const [restaurantes, setRestaurantes] = useState<IRestaurante[]>([])
     const parametros = useParams()
     const navegar = useNavigate();
     
@@ -28,6 +30,13 @@ export default function ADMPratos() {
     axios.get<IPrato[]>('http://localhost:8000/api/v2/pratos/')
     .then(resposta=>{
       setPratoRes(resposta.data)
+    })
+  },[])
+
+  useEffect(()=>{
+    axios.get<IRestaurante[]>('http://localhost:8000/api/v2/restaurantes/')
+    .then(resposta=>{
+      setRestaurantes(resposta.data)
     })
   },[])
     
@@ -40,22 +49,26 @@ export default function ADMPratos() {
             <Table component={Paper}>
               <TableHead>
                 <TableRow className={styles.head}>
-                  <TableCell>PRATOS DOS RESTAURANTES:</TableCell>
+                  <TableCell>RESTAURANTES:</TableCell>
+                  <TableCell>PRATOS:</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
-              
-                {pratoRes.map((prato,index)=>(
-                  <>
-                  <TableRow className={styles.restaura}>
-                    <TableCell key={prato.id}>{prato.nome}</TableCell>
-                    </TableRow>     
-                    </>
+              <TableRow className={styles.restaura} >
+                {restaurantes.map((taurino, index)=>(
+                   
+                     <TableCell key={index}>{taurino.nome}</TableCell>
+                    
+                     
+                       
+                ))}
+                 {pratoRes.map((prato,index)=>(
+                    <TableCell key={index}>{prato.nome}</TableCell>   
                 ))}  
-                 
-              </TableBody>
-            </Table>
-          </div>
+                </TableRow>  
+                </TableBody>
+                </Table>
+                </div>
           <div>
             <Botao
               onClick={() => navegar("cadastro/pratos")}
