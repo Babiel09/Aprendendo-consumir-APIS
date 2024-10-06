@@ -11,12 +11,16 @@ function App() {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/restaurantes" element={<VitrineRestaurantes />} />
-      <Route
-        path="/admin/restaurantes"
-        element={<AdiministracaoRestaurantes />}
-      />
-      <Route path="/admin/cadastro/restaurantes/:id" element={<Cadastro />} />
-      <Route path="/admin/cadastro/restaurantes" element={<Cadastro />} />
+
+      <Route path="/admin" element={<AdiministracaoRestaurantes />}> //Essa parte é especial
+
+      <Route path="cadastro/restaurantes/:id" element={<Cadastro />} />
+      <Route path="cadastro/restaurantes" element={<Cadastro />} />
+
+      </Route>
+
+
+
       <Route path="*" element={<NotFound />} />
       <Route path="/login" element={<Login/>} />
     </Routes>

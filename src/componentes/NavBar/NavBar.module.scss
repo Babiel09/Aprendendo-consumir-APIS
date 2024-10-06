@@ -1,7 +1,11 @@
 .Link {
     position: fixed;
-    left: 78%;
-    background: #f8745c;
+    text-align: center;
+    left: 0;
+    top: 0;
+    background: #ffff;
+    z-index: 999;
+    width: 100%;
     
 
     ul {

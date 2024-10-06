@@ -12,7 +12,7 @@ import Header from "../../componentes/NavBar";
 import Footer from "../../componentes/Rodape/index";
 import Banner2 from "../../componentes/banner2";
 import Botao from "../../componentes/botao";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, Outlet, useNavigate, useParams } from "react-router-dom";
 import { Button } from "@mui/material";
 export default function ADM() {
   const [restaurantes, setRestaurante] = useState<IRestaurante[]>([]);
@@ -71,6 +71,9 @@ export default function ADM() {
           onClick={() => navegar("/admin/cadastro/restaurantes")}
           nome={"Cadastrar novo restaurante"}
         ></Botao>
+      </div>
+      <div>
+        <Outlet/>
       </div>
       <Footer />
     </>

@@ -13,7 +13,6 @@ import IRestaurante from "../../utils/IRestaurante";
 
 export default function Cadastro() {
   const parametros = useParams();
-  const navegacao = useNavigate();
   const [nomeRes, setNomeRes] = useState<string>("");
 
   const navegar = useNavigate();
@@ -42,12 +41,12 @@ export default function Cadastro() {
           console.log(erro);
         });
     }
+    navegar('/admin')
+    window.location.reload()//Assim eu garanto que as modificações serão vísisveis para o ADM
   };
 
   return (
     <>
-      <Header />
-      <Banner2 />
       <form className={styles.form} onSubmit={submeter}>
         <h2>
           Cadastro <br />
@@ -77,15 +76,14 @@ export default function Cadastro() {
         <br />
         <div className={styles.potaro}>
           <Button
-            onClick={() => navegar("/admin/restaurantes")}
+            onClick={() => navegar("/admin")}
             color="secondary"
             variant="contained"
           >
-            Voltar adm main page
+           Finalizado
           </Button>
         </div>
       </div>
-      <Footer />
     </>
   );
 }
